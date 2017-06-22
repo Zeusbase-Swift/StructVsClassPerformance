@@ -10,6 +10,18 @@ import UIKit
 
 class Tests {
     static func runTests() {
+        measure("static func (1 field)") {
+            for a in 1...10000000 {
+                IntStruct.add(a: a, b: a)
+            }
+        }
+        
+        measure("class func (1 field)") {
+            for a in 1...10000000 {
+                IntClass.add(a: a, b: a)
+            }
+        }
+        
         measure("class (1 field)") {
             var x = IntClass(0)
             for _ in 1...10000000 {
@@ -39,7 +51,7 @@ class Tests {
         }
     }
     
-    static private func measure(name: String, @noescape block: () -> ()) {
+    static fileprivate func measure(_ name: String, block: () -> ()) {
         let t0 = CACurrentMediaTime()
         
         block()

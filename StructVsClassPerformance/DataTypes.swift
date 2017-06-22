@@ -10,11 +10,18 @@ import UIKit
 
 // 1 field
 class IntClass {
+    class func add( a: Int, b: Int) -> Int {
+        return a + b
+    }
     var value: Int
     init(_ val: Int) { self.value = val }
 }
 
 struct IntStruct {
+    static func add( a: Int, b: Int) -> Int {
+        return a + b
+    }
+    
     var value: Int
     init(_ val: Int) { self.value = val }
 }
