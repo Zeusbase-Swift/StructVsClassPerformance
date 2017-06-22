@@ -9,44 +9,62 @@
 import UIKit
 
 class Tests {
+    static let iterations = 10000000 * 20
     static func runTests() {
-        measure("static func (1 field)") {
-            for a in 1...10000000 {
-                IntStruct.add(a: a, b: a)
-            }
-        }
-        
-        measure("class func (1 field)") {
-            for a in 1...10000000 {
-                IntClass.add(a: a, b: a)
-            }
-        }
         
         measure("class (1 field)") {
             var x = IntClass(0)
-            for _ in 1...10000000 {
+            for _ in 1...iterations {
                 x = x + IntClass(1)
             }
         }
         
         measure("struct (1 field)") {
             var x = IntStruct(0)
-            for _ in 1...10000000 {
+            for _ in 1...iterations {
                 x = x + IntStruct(1)
             }
         }
         
         measure("class (10 fields)") {
             var x = Int10Class(0)
-            for _ in 1...10000000 {
+            for _ in 1...iterations {
                 x = x + Int10Class(1)
             }
         }
         
         measure("struct (10 fields)") {
             var x = Int10Struct(0)
-            for _ in 1...10000000 {
+            for _ in 1...iterations {
                 x = x + Int10Struct(1)
+            }
+        }
+        
+        measure("STRUCT: static func (1 field)") {
+            var x = 0
+            for a in 1...iterations {
+                x = x + IntStruct.testStructStatic(a: a, b: a)
+            }
+        }
+        
+        measure("GLOBAL: func") {
+            var x = 0
+            for a in 1...iterations {
+                x = x + globalTest(a: a, b: a)
+            }
+        }
+        
+        measure("CLASS: class func (1 field)") {
+            var x = 0
+            for a in 1...iterations {
+                x = x + IntClass.testClassFunc(a: a, b: a)
+            }
+        }
+        
+        measure("CLASS: static func (1 field)") {
+            var x = 0
+            for a in 1...iterations {
+                x = x + IntClass.testClassStatic(a: a, b: a)
             }
         }
     }
@@ -57,7 +75,8 @@ class Tests {
         block()
         
         let dt = CACurrentMediaTime() - t0
-        print("\(name) -> \(dt)")
+        let st = String.init(format: "%.4f", dt * 1000)
+        print("\(name) -> \(st) msec")
     }
 }
 

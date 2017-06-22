@@ -8,18 +8,31 @@
 
 import UIKit
 
+func globalTest(  a: Int, b: Int) -> Int {
+    let r = a * a % b
+    return r
+}
+
 // 1 field
 class IntClass {
-    class func add( a: Int, b: Int) -> Int {
-        return a + b
+    class func testClassFunc( a: Int, b: Int) -> Int {
+        let r = a * a % b
+        return r
     }
+    
+    static func testClassStatic( a: Int, b: Int) -> Int {
+        let r = a * a % b
+        return r
+    }
+    
     var value: Int
     init(_ val: Int) { self.value = val }
 }
 
 struct IntStruct {
-    static func add( a: Int, b: Int) -> Int {
-        return a + b
+    static func testStructStatic( a: Int, b: Int) -> Int {
+        let r = a * a % b
+        return r
     }
     
     var value: Int

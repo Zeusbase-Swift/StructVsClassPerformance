@@ -94,6 +94,7 @@
 				TargetAttributes = {
 					73495AD81B1C74F100BD59FE = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 2DS684EV3A;
 						LastSwiftMigration = 0830;
 					};
 				};
@@ -165,7 +166,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_OPTIMIZATION_LEVEL = fast;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -232,9 +233,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2DS684EV3A;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = StructVsClassPerformance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -243,6 +247,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2DS684EV3A;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = StructVsClassPerformance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
