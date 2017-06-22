@@ -2,11 +2,14 @@ Demonstrates how structures can be more performant than classes using Swift 4 ve
 
 Tests are done for structs/classes with 1 and 10 fields.
 
+**SIMILATOR iOS11**
 - Using default debug settings:
     - struct static func is about 20% faster than class func.
 - Using Swift Compiler -O -whole-module-optimization
     - struct static func is about 38% faster than class func.
 
+On real device performance of static func vs global func vs class func is exactly the same.
+Only performance difference is when instances or struct OR class are used.
 
 
 Compiler settings:
